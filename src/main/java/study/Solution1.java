@@ -1,7 +1,5 @@
 package study;
 
-import java.util.HashMap;
-
 public class Solution1 {
   /**
    * https://leetcode.com/problems/two-sum/
@@ -23,41 +21,16 @@ public class Solution1 {
    * Follow-up: Can you come up with an algorithm that is less than O(n2) time
    * complexity?
    * 
-   * O(n)
-   * 
    * @param nums
    * @param target
    * @return
    */
   public int[] twoSum(int[] nums, int target) {
-    HashMap<Integer, Integer> map = new HashMap<>();
-
-    for (int i = 0; i < nums.length; i++) {
-      int rem = target - nums[i];
-
-      if (map.containsKey(rem)) {
-        return new int[] { i, map.get(rem) };
-      }
-
-      map.put(nums[i], i);
-    }
-
-    throw new RuntimeException("無解");
-  }
-
-  /**
-   * O(n^2)
-   * 
-   * @param nums
-   * @param target
-   * @return
-   */
-  public int[] twoSum1(int[] nums, int target) {
     for (int i = 1; i < nums.length; i++) {
-      int rem = target - nums[i];
+      int value = target - nums[i];
 
       for (int j = 0; j < i; j++) {
-        if (nums[j] == rem) {
+        if (nums[j] == value) {
           return new int[] { i, j };
         }
       }
